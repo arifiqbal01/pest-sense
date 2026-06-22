@@ -1,0 +1,25 @@
+{
+  "id": "treatment_whitefly_scouting",
+  "type": "TreatmentProfile",
+  "version": "1.0",
+  "name": "Whitefly Focused Scouting",
+  "treatment_type": "scouting",
+  "target_pests": ["pest_whitefly"],
+  "target_lifecycle_stages": ["egg", "nymph", "adult"],
+  "effectiveness_model": {
+    "expected_reduction": 0.0,
+    "delayed_effect_days": 0,
+    "persistence_days": 2
+  },
+  "environmental_constraints": {},
+  "resistance_profile": {
+    "resistance_risk": "none"
+  },
+  "economic_profile": {
+    "cost_per_hectare": 0.05,
+    "labor_requirement": "moderate"
+  },
+  "metadata": {
+    "source": "mvp_decision_seed"
+  }
+}

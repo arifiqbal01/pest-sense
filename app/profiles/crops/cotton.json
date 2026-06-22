@@ -1,0 +1,247 @@
+{
+  "id": "crop_cotton",
+  "type": "CropProfile",
+  "version": "1.0",
+  "name": "Cotton",
+  "crop_type": "cotton",
+  "cultivar": "mvp_generic_cotton",
+  "thermal_base_temperature": 12,
+  "growth_model": [
+    {
+      "name": "germination",
+      "order": 0,
+      "expected_duration_days": 7,
+      "gdd_requirement": 80,
+      "vulnerable_pests": [],
+      "economic_importance": 0.2,
+      "microclimate_effects": {
+        "humidity_modifier": 0.0,
+        "temperature_modifier": 0.0
+      }
+    },
+    {
+      "name": "seedling",
+      "order": 1,
+      "expected_duration_days": 21,
+      "gdd_requirement": 200,
+      "vulnerable_pests": ["pest_whitefly", "pest_jassid", "pest_thrips"],
+      "economic_importance": 0.4,
+      "microclimate_effects": {
+        "humidity_modifier": 0.02,
+        "temperature_modifier": 0.0
+      }
+    },
+    {
+      "name": "vegetative",
+      "order": 2,
+      "expected_duration_days": 35,
+      "gdd_requirement": 450,
+      "vulnerable_pests": ["pest_whitefly", "pest_jassid", "pest_thrips", "pest_mealybug"],
+      "economic_importance": 0.65,
+      "microclimate_effects": {
+        "humidity_modifier": 0.05,
+        "temperature_modifier": -0.01
+      }
+    },
+    {
+      "name": "flowering",
+      "order": 3,
+      "expected_duration_days": 30,
+      "gdd_requirement": 750,
+      "vulnerable_pests": ["pest_whitefly", "pest_jassid", "pest_mealybug", "pest_pink_bollworm"],
+      "economic_importance": 0.95,
+      "microclimate_effects": {
+        "humidity_modifier": 0.08,
+        "temperature_modifier": -0.03
+      }
+    },
+    {
+      "name": "boll_formation",
+      "order": 4,
+      "expected_duration_days": 40,
+      "gdd_requirement": 1100,
+      "vulnerable_pests": ["pest_whitefly", "pest_mealybug", "pest_pink_bollworm"],
+      "economic_importance": 1.0,
+      "microclimate_effects": {
+        "humidity_modifier": 0.07,
+        "temperature_modifier": -0.03
+      }
+    },
+    {
+      "name": "maturity",
+      "order": 5,
+      "expected_duration_days": 25,
+      "gdd_requirement": 1400,
+      "vulnerable_pests": ["pest_pink_bollworm"],
+      "economic_importance": 0.75,
+      "microclimate_effects": {
+        "humidity_modifier": 0.03,
+        "temperature_modifier": 0.0
+      }
+    }
+  ],
+  "pest_susceptibility": {
+    "pest_whitefly": {
+      "seedling": "moderate",
+      "vegetative": "high",
+      "flowering": "high",
+      "boll_formation": "moderate"
+    },
+    "pest_jassid": {
+      "seedling": "moderate",
+      "vegetative": "high",
+      "flowering": "moderate"
+    },
+    "pest_thrips": {
+      "seedling": "high",
+      "vegetative": "moderate",
+      "flowering": "low"
+    },
+    "pest_mealybug": {
+      "vegetative": "moderate",
+      "flowering": "high",
+      "boll_formation": "high"
+    },
+    "pest_pink_bollworm": {
+      "flowering": "high",
+      "boll_formation": "critical",
+      "maturity": "high"
+    }
+  },
+  "stress_thresholds": {
+    "heat_stress_limit": 32,
+    "severe_heat_stress_limit": 40,
+    "low_rainfall_7_day_mm": 5
+  },
+  "economic_profile": {
+    "estimated_value_per_hectare": 1.0,
+    "mvp_currency": "relative_index"
+  },
+  "metadata": {
+    "source": "mvp_cotton_seed_profile",
+    "references": [
+      {
+        "id": "ref_1",
+        "authors": "Sankaranarayanan K, Praharaj CS, Nalayini P, Bandyopadhyay KK, Gopalakrishnan N",
+        "year": 2010,
+        "title": "Climate change and its impact on cotton (Gossypium sp.)",
+        "journal": "Indian Journal of Agricultural Sciences",
+        "volume": "80(7)",
+        "pages": "561-575",
+        "values_informed": [
+          "heat_stress_limit",
+          "severe_heat_stress_limit",
+          "flowering.temperature_modifier",
+          "boll_formation.temperature_modifier",
+          "pest_jassid susceptibility stages",
+          "pest_pink_bollworm susceptibility stages"
+        ]
+      },
+      {
+        "id": "ref_2",
+        "authors": "Arshad A, Raza MA, Zhang Y, Zhang L, Wang X, Ahmed M, Habib-ur-Rehman M",
+        "year": 2021,
+        "title": "Impact of Climate Warming on Cotton Growth and Yields in China and Pakistan: A Regional Perspective",
+        "journal": "Agriculture",
+        "volume": "11",
+        "pages": "97",
+        "doi": "10.3390/agriculture11020097",
+        "values_informed": [
+          "heat_stress_limit",
+          "severe_heat_stress_limit",
+          "boll_formation.expected_duration_days",
+          "boll_formation.gdd_requirement",
+          "seedling.expected_duration_days",
+          "vegetative.expected_duration_days"
+        ]
+      },
+      {
+        "id": "ref_3",
+        "authors": "Ahmad S, Abbas Q, Abbas G, Fatima Z, Atique-ur-Rehman, Naz S, Younis H, Khan RJ, Nasim W, Habib ur Rehman M, Ahmad A, Rasul G, Khan MA, Hasanuzzaman M",
+        "year": 2017,
+        "title": "Quantification of Climate Warming and Crop Management Impacts on Cotton Phenology",
+        "journal": "Plants",
+        "volume": "6",
+        "pages": "7",
+        "doi": "10.3390/plants6010007",
+        "values_informed": [
+          "seedling.expected_duration_days",
+          "vegetative.expected_duration_days",
+          "flowering.expected_duration_days",
+          "maturity.gdd_requirement",
+          "sowing-to-maturity phase reduced 4.23 days per decade in 15 Punjab locations"
+        ]
+      },
+      {
+        "id": "ref_4",
+        "authors": "Muzaffargarh Spatial Survey (Researcherslinks)",
+        "year": 2023,
+        "title": "Spatial Survey of Cotton (Gossypium hirsutum L.) Insect Pests and Leaf Curl Virus (CLCuV) in Relation to Weather Parameters in Muzaffargarh, Punjab, Pakistan",
+        "journal": "Researcherslinks",
+        "values_informed": [
+          "pest_whitefly hotspot frequency 8.36-24.14%",
+          "pest_mealybug hotspot frequency 6.71-11.79%",
+          "pest_jassid hotspot frequency 4.56-7.22%",
+          "pest_thrips hotspot frequency 1.36-6.22%",
+          "pest_pink_bollworm hotspot frequency 0.99-5.42%",
+          "pest_susceptibility stage ratings for all 5 pests"
+        ]
+      },
+      {
+        "id": "ref_5",
+        "authors": "PMC Punjab Arthropod Survey",
+        "year": 2022,
+        "title": "Species composition and population dynamics of some arthropod pests in cotton fields of irrigated and semi-arid regions of Punjab, Pakistan",
+        "journal": "PMC",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9763861/",
+        "values_informed": [
+          "pest_whitefly dominant species 39.68% of all arthropod pest individuals",
+          "sucking pest peak July-August",
+          "chewing pest peak late September to October",
+          "pest_jassid negative correlation with temperature and rainfall",
+          "pest_thrips positive correlation with temperature humidity and rainfall"
+        ]
+      },
+      {
+        "id": "ref_6",
+        "authors": "AARI Faisalabad Seasonal Survey",
+        "year": 2009,
+        "title": "Seasonal occurrence of sucking insect pest in cotton ecosystem of Punjab, Pakistan",
+        "journal": "Cotton Research Institute, Ayub Agricultural Research Institute, Faisalabad",
+        "values_informed": [
+          "pest_thrips peak 31 per leaf last two weeks of June",
+          "pest_whitefly peak 21.33 per leaf August",
+          "pest_jassid peak 3.33 per leaf October",
+          "pest_mealybug peak August-September",
+          "seedling.vulnerable_pests thrips added"
+        ]
+      },
+      {
+        "id": "ref_7",
+        "authors": "Raja Reddy K, Hodges HF, Reddy VR",
+        "year": 1992,
+        "title": "Temperature effects on cotton fruit retention",
+        "journal": "Agronomy Journal",
+        "volume": "84",
+        "pages": "26-30",
+        "values_informed": [
+          "severe_heat_stress_limit 40°C — complete boll and flower abscission at 40/32°C day/night",
+          "boll_formation.temperature_modifier",
+          "flowering.temperature_modifier"
+        ]
+      },
+      {
+        "id": "ref_8",
+        "authors": "Reddy KR, Hodges HF, Kimball AB",
+        "year": 2000,
+        "title": "Crop ecosystem response to climate change: Cotton",
+        "journal": "CAB International — Climate Change and Global Crop Productivity",
+        "editors": "Reddy KR and Hodges HF",
+        "values_informed": [
+          "heat_stress_limit 32°C — optimum functioning range 23.5-32°C",
+          "flowering.economic_importance 0.95 — reproductive phase most temperature sensitive"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "id": "pest_whitefly",
+  "type": "PestProfile",
+  "version": "1.0",
+  "name": "Whitefly",
+  "scientific_name": "Bemisia tabaci",
+  "pest_category": "insect",
+  "thermal_properties": {
+    "base_temperature": 10,
+    "upper_temperature_threshold": 40,
+    "optimal_temperature_range": {
+      "minimum": 26,
+      "maximum": 32
+    },
+    "lethal_temperature_range": {
+      "minimum": 42,
+      "maximum": 45
+    }
+  },
+  "humidity_preferences": {
+    "optimal_humidity_range": {
+      "minimum": 55,
+      "maximum": 65
+    },
+    "humidity_stress_threshold": 80
+  },
+  "lifecycle_model": [
+    {
+      "name": "egg",
+      "order": 0,
+      "required_gdd": 25,
+      "feeding_behavior": "none",
+      "reproduction_capability": false,
+      "mobility": "immobile",
+      "vulnerability": {
+        "chemical_vulnerability": 0.2,
+        "biological_vulnerability": 0.3
+      },
+      "economic_damage_weight": 0.05
+    },
+    {
+      "name": "nymph",
+      "order": 1,
+      "required_gdd": 100,
+      "feeding_behavior": "sap_sucking",
+      "reproduction_capability": false,
+      "mobility": "low",
+      "vulnerability": {
+        "chemical_vulnerability": 0.75,
+        "biological_vulnerability": 0.85
+      },
+      "economic_damage_weight": 0.75
+    },
+    {
+      "name": "adult",
+      "order": 2,
+      "required_gdd": 180,
+      "feeding_behavior": "sap_sucking_and_virus_transmission",
+      "reproduction_capability": true,
+      "mobility": "high",
+      "vulnerability": {
+        "chemical_vulnerability": 0.55,
+        "biological_vulnerability": 0.45
+      },
+      "economic_damage_weight": 0.9
+    }
+  ],
+  "reproduction_model": {
+    "reproduction_rate": 0.22,
+    "generation_overlap_possible": true
+  },
+  "damage_profile": {
+    "critical_damage_stages": ["nymph", "adult"],
+    "crop_damage_types": ["sap_sucking", "virus_transmission"],
+    "severity_weights": {
+      "nymph": 0.75,
+      "adult": 0.9
+    }
+  },
+  "suitability_weights": {
+    "temperature": 0.5,
+    "humidity": 0.3,
+    "rainfall": 0.2
+  },
+  "crop_stage_modifiers": {
+    "cotton": {
+      "vegetative": 1.08,
+      "flowering": 1.15,
+      "boll_formation": 1.1,
+      "maturity": 0.9
+    }
+  },
+  "intervention_sensitivity": {
+    "treatment_resistance_risk": "high",
+    "biological_control_sensitivity": "high"
+  },
+  "metadata": {
+    "source": "mvp_literature_seed",
+    "region_focus": "Zahir Pir / Rahim Yar Khan cotton belt",
+    "references": [
+      {
+        "id": "ref_1",
+        "authors": "Tomar S, Sharma S, Malik K",
+        "year": 2017,
+        "title": "Life Parameters of Whitefly (Bemisia tabaci, Genn.) on Different Host Plants",
+        "journal": "Indian Journal of Science and Research",
+        "volume": "16(1)",
+        "pages": "34-37",
+        "issn": "0976-2876",
+        "values_informed": [
+          "egg.required_gdd — incubation 2.47 days on cotton (shortest of all hosts)",
+          "nymph.required_gdd — total nymphal period 8.14 days on cotton",
+          "lifecycle total on cotton 20.93 days (complete life cycle, shortest of all hosts tested)",
+          "reproduction_model.reproduction_rate — eggs per female on cotton 174.3 (highest of all hosts)",
+          "adult longevity on cotton: female 7.55 days, male 6.94 days",
+          "cotton confirmed most suitable host — highest growth index 9.74 and shortest developmental period 12.52 days egg-to-adult",
+          "11-15 generations per year; adult longevity 10-15 days in summer, 30-60 days in winter"
+        ]
+      },
+      {
+        "id": "ref_2",
+        "authors": "Khan MMH",
+        "year": 2019,
+        "title": "Effect of temperature and relative humidity on the population dynamics of brinjal and tomato infesting whitefly, Bemisia tabaci",
+        "journal": "Jahangirnagar University Journal of Biological Sciences",
+        "volume": "8(1)",
+        "pages": "83-86",
+        "values_informed": [
+          "thermal_properties.optimal_temperature_range — strong positive correlation r=0.972 between B. tabaci population and average temperature",
+          "upper_temperature_threshold — high temperature causes desiccation of immature stages, reducing population",
+          "humidity_preferences — extreme RH both high and low unfavorable for immature survival (Gerling et al. 1986 cited)",
+          "humidity_stress_threshold — dry conditions more favorable than high precipitation; excessive rain substantially reduces population",
+          "suitability_weights.rainfall 0.2 — rainfall negatively associated with population build-up"
+        ]
+      },
+      {
+        "id": "ref_3",
+        "authors": "Sani I, Ismail SI, Abdullah S, Jalinas J, Jamian S, Saad N",
+        "year": 2020,
+        "title": "A Review of the Biology and Control of Whitefly, Bemisia tabaci (Hemiptera: Aleyrodidae), with Special Reference to Biological Control Using Entomopathogenic Fungi",
+        "journal": "Insects",
+        "volume": "11",
+        "pages": "619",
+        "doi": "10.3390/insects11090619",
+        "values_informed": [
+          "thermal_properties.optimal_temperature_range — 28°C most favorable temperature for egg production",
+          "egg.required_gdd — egg incubation 5-9 days depending on host, temperature, humidity",
+          "lifecycle egg-to-adult 16-31 days across conditions",
+          "nymph.vulnerability.biological_vulnerability 0.85 — 2nd instar most susceptible stage to EPF biological control",
+          "intervention_sensitivity.biological_control_sensitivity elevated to high — EPF (Beauveria bassiana, Metarhizium anisopliae, Isaria fumosorosea, Lecanicillium lecanii, Aschersonia spp.) all confirmed effective; >50-99% mortality documented",
+          "intervention_sensitivity.treatment_resistance_risk elevated to high — resistance to neonicotinoids documented; excessive chemical use driving resistance in Pakistan populations",
+          "damage_profile adult economic_damage_weight 0.9 — adults transmit 200+ plant viruses including Cotton Leaf Curl Burewala/Multan/Kokhran viruses causing millions USD losses annually",
+          "adult mobility high — adults emerge through inverted T-slit, fly and oviposit across canopy; feeding on underside of leaves"
+        ]
+      }
+    ]
+  }
+}

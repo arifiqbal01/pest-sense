@@ -1,0 +1,217 @@
+{
+  "id": "pest_jassid",
+  "type": "PestProfile",
+  "version": "1.3",
+  "name": "Cotton Jassid",
+  "scientific_name": "Amrasca biguttula biguttula",
+  "common_aliases": [
+    "cotton jassid",
+    "cotton leafhopper"
+  ],
+  "pest_category": "insect",
+
+  "thermal_properties": {
+    "base_temperature": 12,
+    "upper_temperature_threshold": 42,
+    "optimal_temperature_range": {
+      "minimum": 30,
+      "maximum": 38
+    },
+    "lethal_temperature_range": {
+      "minimum": 8,
+      "maximum": 46
+    }
+  },
+
+  "humidity_preferences": {
+    "optimal_humidity_range": {
+      "minimum": 40,
+      "maximum": 85
+    },
+    "humidity_stress_threshold": {
+      "low": 25,
+      "high": 95
+    }
+  },
+
+  "lifecycle_model": [
+    {
+      "name": "egg",
+      "order": 0,
+      "required_gdd": 75,
+      "feeding_behavior": "none",
+      "reproduction_capability": false,
+      "mobility": "immobile",
+      "vulnerability": {
+        "chemical_vulnerability": 0.2,
+        "biological_vulnerability": 0.3
+      },
+      "economic_damage_weight": 0.0,
+      "notes": {
+        "development_duration_days": {
+          "minimum": 5,
+          "maximum": 7
+        }
+      }
+    },
+    {
+      "name": "nymph",
+      "order": 1,
+      "required_gdd": 130,
+      "feeding_behavior": "phloem_sap_sucking",
+      "reproduction_capability": false,
+      "mobility": "low",
+      "vulnerability": {
+        "chemical_vulnerability": 0.7,
+        "biological_vulnerability": 0.8
+      },
+      "economic_damage_weight": 0.85,
+      "notes": {
+        "instar_count": 5,
+        "development_duration_days": {
+          "minimum": 8,
+          "maximum": 12
+        }
+      }
+    },
+    {
+      "name": "adult",
+      "order": 2,
+      "required_gdd": 60,
+      "feeding_behavior": "phloem_sap_sucking",
+      "reproduction_capability": true,
+      "mobility": "high",
+      "vulnerability": {
+        "chemical_vulnerability": 0.5,
+        "biological_vulnerability": 0.5
+      },
+      "economic_damage_weight": 1.0,
+      "notes": {
+        "adult_longevity_days": {
+          "minimum": 12,
+          "maximum": 37
+        }
+      }
+    }
+  ],
+
+  "reproduction_model": {
+    "reproduction_rate": 0.18,
+    "generation_overlap_possible": true,
+    "notes": {
+      "generations_per_year": 11,
+      "egg_laying_capacity": {
+        "minimum": 14,
+        "maximum": 60
+      }
+    }
+  },
+
+  "damage_profile": {
+    "critical_damage_stages": [
+      "nymph",
+      "adult"
+    ],
+    "crop_damage_types": [
+      "phloem_sap_extraction",
+      "salivary_toxin_injection",
+      "hopperburn",
+      "leaf_curl",
+      "leaf_yellowing",
+      "leaf_reddening",
+      "leaf_necrosis",
+      "premature_defoliation",
+      "plant_growth_retardation",
+      "square_shedding",
+      "flower_shedding",
+      "young_boll_shedding",
+      "reduced_boll_production",
+      "lint_quality_deterioration"
+    ],
+    "severity_weights": {
+      "nymph": 0.85,
+      "adult": 1.0
+    }
+  },
+
+  "suitability_weights": {
+    "temperature": 0.60,
+    "humidity": 0.10,
+    "rainfall": 0.30
+  },
+
+  "crop_stage_modifiers": {
+    "cotton": {
+      "seedling": 0.4,
+      "vegetative": 0.8,
+      "flowering": 1.1,
+      "boll_formation": 1.3,
+      "maturity": 0.5
+    }
+  },
+
+  "seasonal_activity_model": {
+    "region": "Punjab Pakistan cotton belt",
+    "activity_window": {
+      "start_smw": 21,
+      "peak_smw": 36,
+      "decline_start_smw": 41,
+      "end_smw": 44
+    }
+  },
+
+  "intervention_sensitivity": {
+    "treatment_resistance_risk": 0.6,
+    "biological_control_sensitivity": 0.5
+  },
+
+  "monitoring": {
+    "economic_thresholds": {
+      "india_reference": ">6 jassids per 3 leaves",
+      "us_preliminary_reference": "1 jassid per leaf or visible injury"
+    },
+    "preferred_sampling_zone": [
+      "underside_of_leaf",
+      "middle_canopy",
+      "upper_canopy"
+    ]
+  },
+
+  "metadata": {
+    "source": "mvp_literature_plus_engineering_estimates",
+    "region_focus": "Punjab Pakistan cotton belt",
+    "model_confidence": "moderate",
+
+    "estimated_fields": [
+      "thermal_properties.base_temperature",
+      "thermal_properties.upper_temperature_threshold",
+      "thermal_properties.lethal_temperature_range",
+      "humidity_preferences.humidity_stress_threshold",
+      "lifecycle_model[*].required_gdd",
+      "lifecycle_model[*].vulnerability",
+      "reproduction_model.reproduction_rate",
+      "intervention_sensitivity"
+    ],
+
+    "estimation_note": "Values marked in estimated_fields are MVP engineering approximations for schema consistency, not literature-grounded biological constants.",
+
+    "references": [
+      {
+        "id": "siraj_2019_multan",
+        "citation": "Siraj Z et al. 2019. Seasonal occurrence of jassid on Bt cotton in southern Punjab."
+      },
+      {
+        "id": "hameed_2014_multan"
+      },
+      {
+        "id": "patel_radadia_2018"
+      },
+      {
+        "id": "ahmad_1999_resistance"
+      },
+      {
+        "id": "ncstate_2026"
+      }
+    ]
+  }
+}

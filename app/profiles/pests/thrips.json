@@ -1,0 +1,196 @@
+{
+  "id": "pest_thrips",
+  "type": "PestProfile",
+  "version": "1.0",
+  "name": "Thrips",
+  "scientific_name": "Thrips tabaci",
+  "pest_category": "insect",
+  "thermal_properties": {
+    "base_temperature": 10,
+    "upper_temperature_threshold": 40,
+    "optimal_temperature_range": {
+      "minimum": 29,
+      "maximum": 35
+    },
+    "lethal_temperature_range": {
+      "minimum": 42,
+      "maximum": 45
+    }
+  },
+  "humidity_preferences": {
+    "optimal_humidity_range": {
+      "minimum": 55,
+      "maximum": 75
+    },
+    "humidity_stress_threshold": 85
+  },
+  "lifecycle_model": [
+    {
+      "name": "egg",
+      "order": 0,
+      "required_gdd": 30,
+      "feeding_behavior": "none",
+      "reproduction_capability": false,
+      "mobility": "immobile",
+      "vulnerability": {
+        "chemical_vulnerability": 0.15,
+        "biological_vulnerability": 0.2
+      },
+      "economic_damage_weight": 0.05
+    },
+    {
+      "name": "larva",
+      "order": 1,
+      "required_gdd": 110,
+      "feeding_behavior": "rasping_and_sucking",
+      "reproduction_capability": false,
+      "mobility": "low",
+      "vulnerability": {
+        "chemical_vulnerability": 0.65,
+        "biological_vulnerability": 0.6
+      },
+      "economic_damage_weight": 0.7
+    },
+    {
+      "name": "prepupa",
+      "order": 2,
+      "required_gdd": 130,
+      "feeding_behavior": "none",
+      "reproduction_capability": false,
+      "mobility": "immobile",
+      "vulnerability": {
+        "chemical_vulnerability": 0.2,
+        "biological_vulnerability": 0.2
+      },
+      "economic_damage_weight": 0.0
+    },
+    {
+      "name": "pupa",
+      "order": 3,
+      "required_gdd": 155,
+      "feeding_behavior": "none",
+      "reproduction_capability": false,
+      "mobility": "immobile",
+      "vulnerability": {
+        "chemical_vulnerability": 0.15,
+        "biological_vulnerability": 0.15
+      },
+      "economic_damage_weight": 0.0
+    },
+    {
+      "name": "adult",
+      "order": 4,
+      "required_gdd": 200,
+      "feeding_behavior": "rasping_and_sucking",
+      "reproduction_capability": true,
+      "mobility": "moderate",
+      "vulnerability": {
+        "chemical_vulnerability": 0.55,
+        "biological_vulnerability": 0.5
+      },
+      "economic_damage_weight": 0.75
+    }
+  ],
+  "reproduction_model": {
+    "reproduction_rate": 0.14,
+    "generation_overlap_possible": true
+  },
+  "damage_profile": {
+    "critical_damage_stages": ["larva", "adult"],
+    "crop_damage_types": ["rasping_feeding", "silvering_of_leaves", "leaf_distortion", "stunted_growth"],
+    "severity_weights": {
+      "larva": 0.7,
+      "adult": 0.75
+    }
+  },
+  "suitability_weights": {
+    "temperature": 0.55,
+    "humidity": 0.25,
+    "rainfall": 0.2
+  },
+  "crop_stage_modifiers": {
+    "cotton": {
+      "seedling": 1.2,
+      "vegetative": 1.1,
+      "flowering": 0.9,
+      "boll_formation": 0.7,
+      "maturity": 0.5
+    }
+  },
+  "intervention_sensitivity": {
+    "treatment_resistance_risk": "moderate",
+    "biological_control_sensitivity": "moderate"
+  },
+  "metadata": {
+    "source": "mvp_literature_seed",
+    "region_focus": "Punjab Pakistan cotton belt",
+    "references": [
+      {
+        "id": "ref_1",
+        "authors": "Kaur S, Kular JS, Chandi RS",
+        "year": 2017,
+        "title": "Effect of Temperature on Growth and Development of Thrips tabaci Lindeman in BT Cotton",
+        "journal": "International Journal of Current Microbiology and Applied Sciences",
+        "volume": "6(5)",
+        "pages": "2553-2560",
+        "doi": "10.20546/ijcmas.2017.605.287",
+        "institution": "Department of Entomology, Punjab Agricultural University, Ludhiana, Punjab, India",
+        "values_informed": [
+          "thermal_properties.optimal_temperature_range — growth index maximum at 30°C (7.92); highest thrips counts at 29.5-31°C mean temperature",
+          "upper_temperature_threshold 40°C — population declines at 40°C; survival drops to 34% at 35°C",
+          "egg.required_gdd — incubation period 2.39 days (35°C) to 4.58 days (25°C) on Bt cotton",
+          "larva.required_gdd — total nymphal period 5.10 days (35°C) to 9.93 days (25°C); 1st instar 2.29-4.23 days, 2nd instar 3.03-5.78 days",
+          "prepupa.required_gdd — pre-pupal period 1.28 days (35°C) to 2.12 days (25°C)",
+          "pupa.required_gdd — pupal period 1.85 days (35°C) to 3.21 days (25°C)",
+          "adult.required_gdd — total development period egg-to-adult 10.00 days (35°C) to 19.56 days (25°C)",
+          "adult longevity 8.21 days (35°C) to 22.19 days (25°C)",
+          "reproduction_model.reproduction_rate — fecundity-cum-viability 7.80 nymphs/female (35°C), 14.60 (30°C), 21.70 (25°C)",
+          "nymphal survival 34% at 35°C, 63% at 30°C, 78% at 25°C — survival declines sharply with temperature rise",
+          "yield loss potential 30-50% (Cook et al. 2011, cited in paper)"
+        ]
+      },
+      {
+        "id": "ref_2",
+        "authors": "Ahmed MH, Ullah MI, Raza ABM, Afzal M, Khaliq A, Iftikhar Y, Aatif HM",
+        "year": 2017,
+        "title": "Population Dynamics of Thrips tabaci (Lindeman) in Relation to Abiotic Climate Factors on Bt and Non-Bt Cotton Cultivars",
+        "journal": "Pakistan Journal of Zoology",
+        "volume": "49(6)",
+        "pages": "1937-1943",
+        "doi": "10.17582/journal.pjz/2017.49.6.1937.1943",
+        "institution": "Department of Entomology, University of Sargodha, Sargodha, Pakistan",
+        "values_informed": [
+          "thermal_properties.optimal_temperature_range — highest thrips counts at max temperature 34-35°C; mean temp 29.5-31°C gave highest population",
+          "upper_temperature_threshold — population declined at 40°C",
+          "humidity_preferences.optimal_humidity_range — maximum thrips population in range 75-85% RH; positive correlation with humidity r=0.40**",
+          "suitability_weights.temperature 0.55 — minimum temperature showed highest significant correlation with thrips population r=0.57**",
+          "suitability_weights.rainfall 0.2 — thrips and mites favor low rainfall for development",
+          "crop_stage_modifiers.seedling 1.2 and vegetative 1.1 — population peaks at 8th-9th sampling interval (August) then declines; highest on upper canopy",
+          "active season June-October in Punjab Pakistan field conditions",
+          "peak population 13 thrips/leaf (Bt-3701); Bt variety FH-113 showed lowest thrips population",
+          "correlation matrix: thrips vs min temp r=0.57**, thrips vs humidity r=0.40**, thrips vs avg temp r=0.48**; max temp correlation non-significant"
+        ]
+      },
+      {
+        "id": "ref_3",
+        "authors": "Joseph SV, Braman K, Hudson W, Nair S",
+        "year": 2025,
+        "title": "Biology and Management of Thrips Affecting the Production Nursery and Landscape",
+        "journal": "UGA Cooperative Extension Circular",
+        "volume": "1158",
+        "url": "https://extension.uga.edu/publications/detail.html?number=C1158",
+        "institution": "Department of Entomology, University of Georgia",
+        "values_informed": [
+          "lifecycle_model structure — 6 stages confirmed: egg, 1st instar larva (foliage), 2nd instar larva (foliage), prepupa (soil/leaf litter), pupa (soil/leaf litter), adult (foliage)",
+          "prepupa and pupa economic_damage_weight 0.0 — pupal stages are resting stages and do not feed",
+          "larva.mobility low and adult.mobility moderate — larvae wingless and weak; adults winged but generally weak fliers, dispersed by wind",
+          "life cycle completed in ~2 weeks under favorable conditions; multiple generations per year",
+          "damage_profile.crop_damage_types — rasping feeding causes silver/bronze colored speckles; leaf distortion, premature drying and shedding of buds and flowers",
+          "intervention_sensitivity.biological_control_sensitivity moderate — natural enemies include lacewings, spiders, predatory thrips, mites, minute pirate bugs; Thripobius semiluteus wasp specific to greenhouse thrips",
+          "intervention_sensitivity.treatment_resistance_risk moderate — continuous insecticide exposure leads to resistance development; thrips hide in plant crevices limiting chemical reach",
+          "monitoring: yellow and blue sticky cards effective; blue/white water pan traps also used"
+        ]
+      }
+    ]
+  }
+}

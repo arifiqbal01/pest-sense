@@ -1,0 +1,212 @@
+{
+  "id": "pest_mealybug",
+  "type": "PestProfile",
+  "version": "1.0",
+  "name": "Cotton Mealybug",
+  "scientific_name": "Phenacoccus solenopsis",
+  "common_aliases": [
+    "solenopsis mealybug",
+    "cotton mealybug"
+  ],
+
+  "pest_category": "insect",
+
+  "thermal_properties": {
+    "base_temperature": 11.7,
+    "upper_temperature_threshold": 39,
+    "optimal_temperature_range": {
+      "minimum": 30,
+      "maximum": 33
+    },
+    "lethal_temperature_range": {
+      "minimum": 10,
+      "maximum": 40
+    }
+  },
+
+  "humidity_preferences": {
+    "optimal_humidity_range": {
+      "minimum": 50,
+      "maximum": 75
+    },
+    "humidity_stress_threshold": {
+      "low": 30,
+      "high": 90
+    }
+  },
+
+  "lifecycle_model": [
+    {
+      "name": "crawler",
+      "order": 0,
+      "required_gdd": 60,
+      "feeding_behavior": "sap_sucking",
+      "reproduction_capability": false,
+      "mobility": "high",
+      "vulnerability": {
+        "chemical_vulnerability": 0.8,
+        "biological_vulnerability": 0.9
+      },
+      "economic_damage_weight": 0.35,
+      "notes": {
+        "development_duration_days": {
+          "minimum": 3,
+          "maximum": 12
+        }
+      }
+    },
+    {
+      "name": "nymph",
+      "order": 1,
+      "required_gdd": 260,
+      "feeding_behavior": "sap_sucking",
+      "reproduction_capability": false,
+      "mobility": "low",
+      "vulnerability": {
+        "chemical_vulnerability": 0.6,
+        "biological_vulnerability": 0.8
+      },
+      "economic_damage_weight": 0.8,
+      "notes": {
+        "development_duration_days": {
+          "minimum": 10,
+          "maximum": 44
+        }
+      }
+    },
+    {
+      "name": "adult_female",
+      "order": 2,
+      "required_gdd": 60,
+      "feeding_behavior": "sap_sucking",
+      "reproduction_capability": true,
+      "mobility": "very_low",
+      "vulnerability": {
+        "chemical_vulnerability": 0.4,
+        "biological_vulnerability": 0.7
+      },
+      "economic_damage_weight": 1.0,
+      "notes": {
+        "longevity_days": {
+          "minimum": 21,
+          "maximum": 46
+        },
+        "peak_fecundity": 245
+      }
+    },
+
+    {
+      "name": "adult_male",
+      "order": 3,
+      "required_gdd": 80,
+      "feeding_behavior": "none",
+      "reproduction_capability": true,
+      "mobility": "high",
+      "vulnerability": {
+        "chemical_vulnerability": 0.7,
+        "biological_vulnerability": 0.3
+      },
+      "economic_damage_weight": 0.0
+    }
+  ],
+
+  "reproduction_model": {
+    "reproduction_type": "sexual_ovoviviparous",
+    "reproduction_rate": 0.28,
+    "generation_overlap_possible": true,
+    "notes": {
+      "peak_temperature": 30,
+      "fecundity_peak": 245,
+      "population_multiplier_next_generation": {
+        "at_30c": 170.3,
+        "at_35c": 97.6
+      }
+    }
+  },
+
+  "damage_profile": {
+    "critical_damage_stages": [
+      "crawler",
+      "nymph",
+      "adult_female"
+    ],
+    "crop_damage_types": [
+      "sap_extraction",
+      "phloem_depletion",
+      "stunting",
+      "leaf_yellowing",
+      "leaf_curling",
+      "shoot_distortion",
+      "boll_deformation",
+      "reduced_boll_size",
+      "partial_boll_opening",
+      "honeydew_excretion",
+      "sooty_mold_growth",
+      "plant_wilting"
+    ],
+    "severity_weights": {
+      "crawler": 0.35,
+      "nymph": 0.8,
+      "adult_female": 1.0
+    }
+  },
+
+  "suitability_weights": {
+    "temperature": 0.65,
+    "humidity": 0.15,
+    "rainfall": 0.20
+  },
+
+  "crop_stage_modifiers": {
+    "cotton": {
+      "seedling": 0.5,
+      "vegetative": 0.9,
+      "flowering": 1.2,
+      "boll_formation": 1.3,
+      "maturity": 0.8
+    }
+  },
+
+  "seasonal_activity_model": {
+    "region": "Punjab Pakistan cotton belt",
+    "activity_window": {
+      "start_smw": 24,
+      "peak_smw": 38,
+      "decline_start_smw": 44,
+      "end_smw": 48
+    }
+  },
+
+  "intervention_sensitivity": {
+    "treatment_resistance_risk": 0.7,
+    "biological_control_sensitivity": 0.9
+  },
+
+  "monitoring": {
+    "preferred_sampling_zone": [
+      "shoot_tips",
+      "leaf_axils",
+      "underside_of_leaves",
+      "fruiting_bodies",
+      "stems"
+    ]
+  },
+
+  "metadata": {
+    "source": "literature_grounded",
+    "region_focus": "Punjab Pakistan cotton belt",
+    "model_confidence": "high",
+
+    "references": [
+      {
+        "id": "prasad_2012_crop_protection"
+      },
+      {
+        "id": "sreedevi_2013_plos_one"
+      },
+      {
+        "id": "shehata_2017"
+      }
+    ]
+  }
+}

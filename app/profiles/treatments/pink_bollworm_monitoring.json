@@ -1,0 +1,25 @@
+{
+  "id": "treatment_pink_bollworm_monitoring",
+  "type": "TreatmentProfile",
+  "version": "1.0",
+  "name": "Pink Bollworm Boll Inspection",
+  "treatment_type": "scouting",
+  "target_pests": ["pest_pink_bollworm"],
+  "target_lifecycle_stages": ["egg", "larva", "adult"],
+  "effectiveness_model": {
+    "expected_reduction": 0.0,
+    "delayed_effect_days": 0,
+    "persistence_days": 2
+  },
+  "environmental_constraints": {},
+  "resistance_profile": {
+    "resistance_risk": "none"
+  },
+  "economic_profile": {
+    "cost_per_hectare": 0.08,
+    "labor_requirement": "moderate"
+  },
+  "metadata": {
+    "source": "mvp_decision_seed"
+  }
+}

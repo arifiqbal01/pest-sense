@@ -1,0 +1,106 @@
+{
+  "id": "region_khanpur_tehsil",
+  "type": "RegionProfile",
+  "version": "1.1",
+
+  "name": "Khanpur Tehsil Cotton Belt",
+  "geographic_zone": {
+    "country": "Pakistan",
+    "province": "Punjab",
+    "district": "Rahim Yar Khan",
+    "tehsil": "Khanpur"
+  },
+
+  "weather_location": {
+    "region": "Khanpur Tehsil",
+    "latitude": 28.6470,
+    "longitude": 70.6560,
+    "elevation_m": 120
+  },
+
+  "environment_type": "open_field_irrigated_agriculture",
+
+  "climate_behavior": {
+    "climate_zone": "hot_desert_bwh",
+
+    "summer_temperature_range_c": [38, 49],
+    "winter_temperature_range_c": [8, 25],
+
+    "typical_day_night_variation_c": {
+      "summer": [10, 18],
+      "winter": [8, 15]
+    },
+
+    "typical_humidity_range": [20, 70],
+
+    "rainfall_pattern": {
+      "annual_rainfall_mm": [75, 200],
+      "monsoon_months": ["July", "August", "September"],
+      "rainfall_distribution": "highly_seasonal_low_total"
+    },
+
+    "monsoon_influence": "weak_to_moderate",
+
+    "extreme_weather": {
+      "heatwave_frequency": "high",
+      "dust_storm_risk": "moderate",
+      "prolonged_dry_spell_risk": "high"
+    }
+  },
+
+  "seasonal_assumptions": {
+    "cotton_sowing_window": ["04-15", "05-31"],
+    "cotton_establishment_window": ["05-01", "06-15"],
+    "vegetative_growth_window": ["06-01", "07-31"],
+    "flowering_window": ["07-15", "09-15"],
+    "boll_formation_window": ["08-01", "10-15"],
+    "harvest_window": ["10-15", "12-15"],
+
+    "primary_pest_risk_window": ["06-01", "10-31"]
+  },
+
+  "pest_patterns": {
+    "common_pests": [
+      "pest_whitefly",
+      "pest_jassid",
+      "pest_thrips",
+      "pest_aphid",
+      "pest_mealybug",
+      "pest_pink_bollworm"
+    ],
+
+    "pressure_profiles": {
+      "whitefly": "very_high_in_hot_humid_irrigated_periods",
+      "jassid": "high_during_vegetative_and_early_flowering",
+      "thrips": "moderate_high_in_hot_dry_early_crop_stage",
+      "aphid": "episodic_outbreaks_in_moderate_conditions",
+      "mealybug": "localized_but_high_when_established",
+      "pink_bollworm": "high_during_boll_formation_and_late_crop"
+    }
+  },
+
+  "environmental_modifiers": {
+    "heatwave_frequency": 0.9,
+    "drought_risk": 0.85,
+    "irrigation_dependence": 0.95,
+    "crop_stress_amplification": 0.8,
+    "microclimate_creation_via_irrigation": 0.75
+  },
+
+  "agroecological_assumptions": {
+    "dominant_cropping_system": "irrigated_cotton",
+    "host_plant_continuity_risk": "moderate",
+    "natural_enemy_pressure": "variable",
+    "water_stress_frequency": "high"
+  },
+
+  "data_strategy": {
+    "weather_resolution_target": "tehsil_level",
+    "future_upgrade": "village_or_farm_microclimate_profiles"
+  },
+
+  "metadata": {
+    "source": "regional_climate_assumption_mvp",
+    "confidence": "high"
+  }
+}

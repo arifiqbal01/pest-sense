@@ -1,0 +1,7 @@
+#database
+psql -U admin -d pestsense
+all tables = \dt
+single table = \d+ weather_records
+#migration
+uv run alembic revision --autogenerate -m "create weather records table"
+uv run alembic upgrade head

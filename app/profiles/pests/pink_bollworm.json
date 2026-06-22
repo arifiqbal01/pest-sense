@@ -1,0 +1,139 @@
+{
+  "id": "pest_pink_bollworm",
+  "type": "PestProfile",
+  "version": "1.0",
+  "name": "Pink Bollworm",
+  "scientific_name": "Pectinophora gossypiella",
+  "pest_category": "insect",
+  "thermal_properties": {
+    "base_temperature": 10,
+    "upper_temperature_threshold": 40,
+    "optimal_temperature_range": {
+      "minimum": 30,
+      "maximum": 35
+    },
+    "lethal_temperature_range": {
+      "minimum": 10,
+      "maximum": 42
+    }
+  },
+  "humidity_preferences": {
+    "optimal_humidity_range": {
+      "minimum": 45,
+      "maximum": 70
+    },
+    "humidity_stress_threshold": 88
+  },
+  "lifecycle_model": [
+    {
+      "name": "egg",
+      "order": 0,
+      "required_gdd": 77,
+      "feeding_behavior": "none",
+      "reproduction_capability": false,
+      "mobility": "immobile",
+      "vulnerability": {
+        "chemical_vulnerability": 0.25,
+        "biological_vulnerability": 0.3
+      },
+      "economic_damage_weight": 0.0
+    },
+    {
+      "name": "larva",
+      "order": 1,
+      "required_gdd": 479,
+      "feeding_behavior": "boll_boring_seed_destruction",
+      "reproduction_capability": false,
+      "mobility": "low",
+      "vulnerability": {
+        "chemical_vulnerability": 0.35,
+        "biological_vulnerability": 0.55
+      },
+      "economic_damage_weight": 1.0
+    },
+    {
+      "name": "pupa",
+      "order": 2,
+      "required_gdd": 653,
+      "feeding_behavior": "none",
+      "reproduction_capability": false,
+      "mobility": "immobile",
+      "vulnerability": {
+        "chemical_vulnerability": 0.2,
+        "biological_vulnerability": 0.25
+      },
+      "economic_damage_weight": 0.0
+    },
+    {
+      "name": "adult",
+      "order": 3,
+      "required_gdd": 653,
+      "feeding_behavior": "oviposition_on_bolls",
+      "reproduction_capability": true,
+      "mobility": "high",
+      "vulnerability": {
+        "chemical_vulnerability": 0.45,
+        "biological_vulnerability": 0.35
+      },
+      "economic_damage_weight": 0.1
+    }
+  ],
+  "reproduction_model": {
+    "reproduction_rate": 0.14,
+    "generation_overlap_possible": true
+  },
+  "damage_profile": {
+    "critical_damage_stages": ["larva"],
+    "crop_damage_types": ["boll_boring", "seed_destruction", "locule_damage"],
+    "severity_weights": {
+      "larva": 1.0,
+      "adult": 0.1
+    }
+  },
+  "suitability_weights": {
+    "temperature": 0.55,
+    "humidity": 0.2,
+    "rainfall": 0.25
+  },
+  "crop_stage_modifiers": {
+    "cotton": {
+      "seedling": 0.0,
+      "vegetative": 0.0,
+      "flowering": 0.6,
+      "boll_formation": 1.3,
+      "maturity": 1.1
+    }
+  },
+  "intervention_sensitivity": {
+    "treatment_resistance_risk": "high",
+    "biological_control_sensitivity": "moderate"
+  },
+  "metadata": {
+    "source": "mvp_literature_seed",
+    "region_focus": "Punjab Pakistan cotton belt",
+    "references": [
+      {
+        "id": "nagaraju_2024_scirep",
+        "citation": "Nagaraju MT, Mohan KM, Keerthi MC, Prabhulinga T, Thube S, Shah V, Elansary HO, Mousa IM, El-Sheikh MA. Effect of temperature on the biological parameters of pink bollworm, Pectinophora gossypiella Saunders (Lepidoptera: Gelechiidae). Scientific Reports. 2024;14:15047. doi:10.1038/s41598-024-65241-8",
+        "values_informed": [
+          "thermal_properties.optimal_temperature_range",
+          "thermal_properties.upper_temperature_threshold",
+          "thermal_properties.base_temperature",
+          "thermal_properties.lethal_temperature_range",
+          "lifecycle_model[egg].required_gdd",
+          "lifecycle_model[larva].required_gdd",
+          "lifecycle_model[larva].feeding_behavior",
+          "lifecycle_model[pupa].required_gdd",
+          "lifecycle_model[pupa].economic_damage_weight",
+          "lifecycle_model[egg].economic_damage_weight",
+          "lifecycle_model[adult].economic_damage_weight",
+          "lifecycle_model[adult].required_gdd",
+          "reproduction_model.reproduction_rate",
+          "damage_profile.crop_damage_types",
+          "crop_stage_modifiers.cotton.seedling",
+          "crop_stage_modifiers.cotton.vegetative"
+        ]
+      }
+    ]
+  }
+}
