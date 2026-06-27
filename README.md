@@ -1,6 +1,6 @@
-# PestSense
+# PestAlert
 
-PestSense is an experimental backend system for **pest forecasting and agricultural decision support**, built around **biological state modeling**, **weather-driven risk assessment**, and **modular domain architecture**.
+PestAlert is an experimental backend system for **pest forecasting and agricultural decision support**, built around **biological state modeling**, **weather-driven risk assessment**, and **modular domain architecture**.
 
 The project explores how climate, crop development, pest biology, and intervention logic can be modeled together to generate **early pest risk signals** and more grounded agricultural recommendations.
 
@@ -18,7 +18,7 @@ This is not intended to be a full production platform yet. The current focus is 
 
 Pest outbreaks are not random events. They emerge from interacting biological and environmental conditions over time.
 
-PestSense is being designed around that idea by combining:
+PestAlert is being designed around that idea by combining:
 
 * **climate conditions**
 * **crop development stage**
@@ -32,7 +32,7 @@ At a high level, the system is moving toward:
 
 ## Architecture Direction
 
-PestSense is being developed as a **backend-first Python project** with a modular, domain-driven structure.
+PestAlert is being developed as a **backend-first Python project** with a modular, domain-driven structure.
 
 ### Stack
 
@@ -75,7 +75,7 @@ The MVP is centered around a small set of domain capabilities:
 
 ## Why This Project Exists
 
-My background is in **agriculture and entomology**, and PestSense sits at the intersection of that domain knowledge and backend engineering.
+My background is in **agriculture and entomology**, and PestAlert sits at the intersection of that domain knowledge and backend engineering.
 
 The long-term aim is to build software that does more than store agricultural data — software that can reason about biological development, environmental pressure, and intervention timing in a useful way.
 
